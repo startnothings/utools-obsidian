@@ -1,0 +1,12 @@
+{
+  "preload": "preload.js",
+  "logo": "logo.png",
+  "platform": ["win32"],
+  "features": [
+    {
+      "code": "obsidian-search",
+      "explain": "hello world",
+      "cmds": ["hello", "你好", "obsidian"]
+    }
+  ]
+}

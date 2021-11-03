@@ -6,7 +6,7 @@
     {
       "code": "obsidian-search",
       "explain": "obsidian search",
-      "cmds": ["obsidian"]
+      "cmds": ["Obsidian Search", "Obsidian搜索"]
     }
   ]
 }

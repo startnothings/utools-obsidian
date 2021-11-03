@@ -5,8 +5,8 @@
   "features": [
     {
       "code": "obsidian-search",
-      "explain": "hello world",
-      "cmds": ["hello", "你好", "obsidian"]
+      "explain": "obsidian search",
+      "cmds": ["obsidian"]
     }
   ]
 }

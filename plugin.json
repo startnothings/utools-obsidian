@@ -3,10 +3,17 @@
   "logo": "logo.png",
   "platform": ["win32"],
   "features": [
+    "obsidian search",
+    "obsidian搜索",
     {
       "code": "obsidian-search",
       "explain": "obsidian search",
-      "cmds": ["Obsidian Search", "Obsidian搜索"]
+      "cmds": [
+        {
+          "type": "over",
+          "label": "Obsidian 搜索"
+        }
+      ]
     }
   ]
 }

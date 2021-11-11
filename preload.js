@@ -97,12 +97,19 @@ window.exports = {
     args: {
       enter: (action, callbackSetList) => {
         mdItems = getObsidianItems();
-        // console.log(callbackItems);
+        console.log(action.payload);
+        if (action.payload) {
+          // 直接调用setSubInputValue不生效，特殊处理
+          setTimeout(function () {
+            window.utools.setSubInputValue(action.payload);
+          }, 50);
+          callbackItems = searchObsidianItems(action.payload, mdItems);
+          return callbackSetList(callbackItems);
+        }
       },
       search: (action, searchWord, callbackSetList) => {
         if (!searchWord) return callbackSetList();
         callbackItems = searchObsidianItems(searchWord, mdItems);
-        // console.log(callbackItems);
         return callbackSetList(callbackItems);
       },
       select: (action, itemData) => {

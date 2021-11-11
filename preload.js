@@ -73,15 +73,22 @@ function searchObsidianItems(searchWord, items) {
   const regexText = searchWord.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   // 'i'不区分大小写进行检索
   const searchRegex = new RegExp(regexText, "i");
-  searchItems = items.filter(
+  // 优先匹配标题
+  searchItems1 = items.filter(
+    (item) => item.mdtitle.search(searchRegex) !== -1
+  );
+  // 然后匹配正文
+  searchItems2 = items.filter(
     (item) =>
-      item.mdtitle.search(searchRegex) !== -1 ||
+      item.mdtitle.search(searchRegex) == -1 &&
       item.mdcontent.search(searchRegex) !== -1
   );
+  // 合并匹配结果
+  searchItems = searchItems1.concat(searchItems2);
   const callbackItems = [];
   searchItems.map((item) => {
     callbackItems.push({
-      title: item.mdtitle,
+      title: "【" + item.mdtitle + "】",
       description: item.mdcontent,
       icon: "logo.png",
       url: `obsidian://open?vault=${item.vualtid}&file=${item.mdtitle}`,
